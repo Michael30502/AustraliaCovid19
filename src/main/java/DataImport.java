@@ -19,8 +19,8 @@ public class DataImport {
        table = p.loadTable("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv","header");
        for (TableRow row : table.rows()) {
            if(row.getString("location").equals("Australia")){
-               p.println(row.getInt("total_deaths"));
-                row.getString("");
+               p.println(row.getString("date")+ " "+row.getInt("total_deaths"));
+
            }
 
     }
