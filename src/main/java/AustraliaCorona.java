@@ -2,8 +2,14 @@ import processing.core.PApplet;
 
 public class AustraliaCorona extends PApplet {
 
+    DataImport dataImport = new DataImport(this);
+    Display display = new Display();
+    DataHandler dataHandler = new DataHandler();
+    UserInput userInput = new UserInput();
+
+
     public static void main(String[] args ) {
-        PApplet.main("name");
+        PApplet.main("AustraliaCorona");
     }
 
 
@@ -11,9 +17,11 @@ public class AustraliaCorona extends PApplet {
         size(1792,828);
     }
 
-    public void setup(){
-        
 
+
+    public void setup(){
+
+dataImport.importData();
 
     }
 
