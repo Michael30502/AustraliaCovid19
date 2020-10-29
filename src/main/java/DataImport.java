@@ -20,7 +20,7 @@ public class DataImport {
        for (TableRow row : table.rows()) {
            if(row.getString("location").equals("Australia")){
                p.println(row.getInt("total_deaths"));
-
+                row.getString("");
            }
 
     }
