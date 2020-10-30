@@ -5,13 +5,14 @@ public class DisplayAndInput {
 DisplayAndInput(PApplet p){
 this.p=p;
 }
-void display(){
+void display(/*InputField inputField*/){
     background();
+    //inputField.display();
 }
 
 void background(){
     p.background(3,145,213);
-
+    
 
 }
 
