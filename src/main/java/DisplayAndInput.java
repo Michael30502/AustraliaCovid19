@@ -1,5 +1,4 @@
 import processing.core.PApplet;
-
 import java.util.ArrayList;
 
 public class DisplayAndInput {
@@ -19,9 +18,18 @@ ArrayList<String> options = new ArrayList<>();
             p.textAlign(p.CENTER);
             p.text(options.get(i),p.width/2,(p.height/2)-options.size()+i*20);
         
-        }
+	}}
 
+void display(/*InputField inputField*/){
+    background();
+    //inputField.display();
+}
+
+void background(){
+    p.background(3,145,213);
 
     }
+
+
 
 }
