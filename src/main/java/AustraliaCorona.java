@@ -22,9 +22,10 @@ public class AustraliaCorona extends PApplet {
     public void setup(){
 
     dataImport.importData();
-    DataHandler dataHandler = new DataHandler(this,dataImport.map);
-    DisplayAndInput displayAndInput = new DisplayAndInput();
+    DataHandler dataHandler = new DataHandler(this,dataImport.map,dataImport.dates);
+    DisplayAndInput displayAndInput = new DisplayAndInput(this);
 
+    displayAndInput.displayMenu();
 
 
     }

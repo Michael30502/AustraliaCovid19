@@ -1,5 +1,7 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 public class InputField {
 
 
@@ -14,7 +16,6 @@ public class InputField {
         InputField(PApplet p,int x,int y,int w,int h,String type){
 
             this.p=p;
-
             this.x=x;
             this.y=y;
             this.w=w;
@@ -86,4 +87,4 @@ public class InputField {
 
     }
 
-}
+
