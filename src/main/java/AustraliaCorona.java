@@ -1,11 +1,11 @@
 import processing.core.PApplet;
 
+import java.util.HashMap;
+
 public class AustraliaCorona extends PApplet {
 
     DataImport dataImport = new DataImport(this);
-    Display display = new Display();
-    DataHandler dataHandler = new DataHandler();
-    UserInput userInput = new UserInput();
+
 
 
     public static void main(String[] args ) {
@@ -21,7 +21,11 @@ public class AustraliaCorona extends PApplet {
 
     public void setup(){
 
-dataImport.importData();
+    dataImport.importData();
+    DataHandler dataHandler = new DataHandler(this,dataImport.map);
+    DisplayAndInput displayAndInput = new DisplayAndInput();
+
+
 
     }
 

@@ -2,8 +2,11 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 
+import java.util.HashMap;
+
 public class DataImport {
 
+    HashMap<String,Data> map = new HashMap<>();
     PApplet p;
     Table table;
 
@@ -20,11 +23,15 @@ public class DataImport {
        for (TableRow row : table.rows()) {
            if(row.getString("location").equals("Australia")){
                p.println(row.getString("date")+ " "+row.getInt("total_deaths"));
-
+               putData(row.getString("date"),row.getInt("total_deaths"));
            }
-
     }
 }
+    void putData(String key,int deaths){
+        map.put(key,new Data(key,deaths));
+
+
+    }
 
 
 }
