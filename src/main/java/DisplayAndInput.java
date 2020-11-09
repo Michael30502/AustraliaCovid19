@@ -24,8 +24,9 @@ ArrayList<String> options = new ArrayList<>();
 
 void display(/*InputField inputField*/){
     background();
-    dataHandler.barGraph();
+    //dataHandler.barGraph();
     //inputField.display();
+    dataHandler.lineGraph();
 }
 
 void barGraph(){
