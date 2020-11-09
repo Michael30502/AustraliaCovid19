@@ -17,6 +17,7 @@ ArrayList<String> options = new ArrayList<>();
 
         for(int i =0;i<options.size();i++){
             p.textAlign(p.CENTER);
+            p.fill(0);
             p.text(options.get(i),p.width/2,(p.height/2)-options.size()+i*20);
         
 	}}
@@ -39,7 +40,7 @@ void barGraph(){
 void background(){
     p.background(3,145,213);
     p.fill(3,130,170);
-    p.rect(0,0,828,100);
+    p.rect(0,0,828/2,100/2);
 
     }
 
