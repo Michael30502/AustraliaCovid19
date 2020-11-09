@@ -3,11 +3,12 @@ import java.util.ArrayList;
 
 public class DisplayAndInput {
 PApplet p;
-
+DataHandler dataHandler;
 ArrayList<String> options = new ArrayList<>();
 
-        DisplayAndInput(PApplet p){
+        DisplayAndInput(PApplet p,DataHandler dataHandler){
             this.p=p;
+            this.dataHandler = dataHandler;
             options.add("Bar Graph (Deaths)");
             options.add("Bar Graph (New Deaths)");
         }
@@ -22,8 +23,18 @@ ArrayList<String> options = new ArrayList<>();
 
 void display(/*InputField inputField*/){
     background();
+    dataHandler.barGraph();
     //inputField.display();
 }
+
+void barGraph(){
+
+
+
+
+}
+
+
 
 void background(){
     p.background(3,145,213);
