@@ -5,8 +5,9 @@ import java.util.HashMap;
 public class AustraliaCorona extends PApplet {
 
     DataImport dataImport = new DataImport(this);
-    DisplayAndInput displayAndInput = new DisplayAndInput(this);
-
+    DisplayAndInput displayAndInput;
+    DataHandler dataHandler;
+    double multiplier = 0.5;
 
     public static void main(String[] args ) {
         PApplet.main("AustraliaCorona");
@@ -14,7 +15,7 @@ public class AustraliaCorona extends PApplet {
 
 
     public void settings() {
-        size(828,1792);
+        size(828/2,1792/2);
     }
 
 
@@ -23,7 +24,8 @@ public class AustraliaCorona extends PApplet {
 
     dataImport.importData();
 
-    DataHandler dataHandler = new DataHandler(this,dataImport.map,dataImport.dates);
+     dataHandler = new DataHandler(this,dataImport.map,dataImport.dates,multiplier);
+         displayAndInput= new DisplayAndInput(this,dataHandler);
     displayAndInput.display();
 
 

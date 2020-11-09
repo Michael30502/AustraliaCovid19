@@ -32,8 +32,6 @@ public class DataImport {
 }
     void putData(String key,int deaths){
         map.put(key,new Data(key,deaths));
-
-
     }
 
 
