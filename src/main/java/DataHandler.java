@@ -28,6 +28,25 @@ public class DataHandler {
         }
 
 
+        void lineGraph() {
+            float sum1 =0;
+            float sum2 =0;
+            float multi2 = (float)multi*5;
+
+            for (int i = 1; i < dates.size(); i++) {
+                sum2= (float) (map.get(dates.get(i)).deaths/3.5);
+                p.stroke(0);
+            p.line(50+(i-1)*multi2,p.height-30-sum1,50+i*multi2,p.height-30-sum2);
+                sum1=sum2;
+            }
+
+            for(int i =1;i<7;i++){
+                p.stroke(169);
+            p.line(50,p.height-sum2/5*i,p.width-50,p.height -sum2/5*i);
+            }
+    p.line(50,p.height-25,p.width-50,p.height-25);
+            p.line(50,p.height-25,50,p.height-sum2-sum2/5);    }
+
 
 
 }

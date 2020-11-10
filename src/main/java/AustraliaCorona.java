@@ -16,6 +16,7 @@ public class AustraliaCorona extends PApplet {
 
     public void settings() {
         size(1792,828);
+
     }
 
 

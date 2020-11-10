@@ -17,14 +17,16 @@ ArrayList<String> options = new ArrayList<>();
 
         for(int i =0;i<options.size();i++){
             p.textAlign(p.CENTER);
+            p.fill(0);
             p.text(options.get(i),p.width/2,(p.height/2)-options.size()+i*20);
         
 	}}
 
 void display(/*InputField inputField*/){
     background();
-    dataHandler.barGraph();
+    //dataHandler.barGraph();
     //inputField.display();
+    dataHandler.lineGraph();
 }
 
 
