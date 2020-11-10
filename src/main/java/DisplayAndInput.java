@@ -27,19 +27,14 @@ void display(/*InputField inputField*/){
     //inputField.display();
 }
 
-void barGraph(){
 
-
-
-
-}
 
 
 
 void background(){
     p.background(3,145,213);
     p.fill(3,130,170);
-    p.rect(0,0,828,100);
+    p.rect(0,0,p.width,100);
 
     }
 

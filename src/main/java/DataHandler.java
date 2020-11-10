@@ -8,22 +8,22 @@ public class DataHandler {
     PApplet p;
     HashMap<String,Data> map;
     ArrayList<String> dates;
+    ArrayList<String> datesActive;
     double multi;
 
-        DataHandler(PApplet p,HashMap<String,Data> map,ArrayList<String> dates,double multiplier){
+        DataHandler(PApplet p,HashMap<String,Data> map,ArrayList<String> dates,double multiplier,ArrayList<String> datesActive){
             this.p = p;
             this.map = map;
             this.dates = dates;
+            this.datesActive = datesActive;
             multi=multiplier;
         }
 
         void barGraph(){
-            for(int i =0; i<dates.size();i++) {
-
             System.out.println(p.height);
+            for(int i =0; i<datesActive.size();i++) {
+                p.rect((float)5.6*(float)i,p.height ,1,p.height  - ((float)map.get(datesActive.get(i)).deaths)*(float)1.5);
 
-
-                p.rect(0+i*(float)multi ,p.height -20*(float)multi,(i * (float)multi)+2,p.height - 20 + map.get(dates.get(i)).deaths );
             }
         }
 

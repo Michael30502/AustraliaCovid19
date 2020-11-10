@@ -9,6 +9,7 @@ public class DataImport {
 
     HashMap<String,Data> map = new HashMap<>();
     ArrayList<String> dates = new ArrayList<>();
+    ArrayList<String> datesActive = new ArrayList<>();
     PApplet p;
     Table table;
 
@@ -25,6 +26,8 @@ public class DataImport {
        for (TableRow row : table.rows()) {
            if(row.getString("location").equals("Australia")){
                dates.add(row.getString("date"));
+               if(row.getInt("total_deaths")!=0)
+               datesActive.add(row.getString("date"));
                p.println(row.getString("date")+ " "+row.getInt("total_deaths"));
                putData(row.getString("date"),row.getInt("total_deaths"));
            }
