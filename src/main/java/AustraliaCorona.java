@@ -16,7 +16,8 @@ public class AustraliaCorona extends PApplet {
 
 
     public void settings() {
-        size(1792/2,828/2);
+        size(1792,828);
+
     }
 
 
@@ -25,14 +26,22 @@ public class AustraliaCorona extends PApplet {
 
     dataImport.importData();
 
-     dataHandler = new DataHandler(this,dataImport.map,dataImport.dates,multiplier);
+    
          displayAndInput= new DisplayAndInput(this,dataHandler);
     displayAndInput.display(graphs);
+     dataHandler = new DataHandler(this,dataImport.map,dataImport.dates,multiplier,dataImport.datesActive);
+     
 
 
-    displayAndInput.displayMenu();
 
 
+
+    }
+
+    public void draw(){
+      //  displayAndInput.barGraph();
+displayAndInput.display();
+        displayAndInput.displayMenu();
     }
 
 }

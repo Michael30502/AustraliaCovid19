@@ -30,19 +30,14 @@ void display(int graph){
     dataHandler.lineGraph();
 }
 
-void barGraph(){
 
-
-
-
-}
 
 
 
 void background(){
     p.background(3,145,213);
     p.fill(3,130,170);
-    p.rect(0,0,1792/2,100/2);
+    p.rect(0,0,p.width,100);
 
     }
 
