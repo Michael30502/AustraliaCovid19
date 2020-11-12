@@ -27,10 +27,18 @@ PImage logo;
 
 void display(int graph,ArrayList<Button> buttList){
     background();
-    //dataHandler.barGraph();
+
     for(int i = 0;i<buttList.size();i++){
     buttList.get(i).drawButton();}
-//    dataHandler.lineGraph();
+    if(graph==1){
+//        dataHandler.barGraph();
+    }
+    if(graph==2){
+ //       dataHandler.barGraph();
+    }
+    if(graph==3){
+        dataHandler.lineGraph();
+    }
 }
 
 

@@ -18,7 +18,7 @@ public class Button {
     }
     public void drawButton() {
         p.textSize(24);
-        p.fill(0);
+        p.fill(3,130,170);
         p.rect(this.xPos, this.yPos, this.w, this.h);
         p.fill(255);
         p.text(this.text, xPos +this.w/2, yPos + 35);

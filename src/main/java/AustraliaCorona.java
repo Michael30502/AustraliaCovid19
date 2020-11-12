@@ -19,7 +19,6 @@ public class AustraliaCorona extends PApplet {
 
     public void settings() {
         size(1792,828);
-
     }
 
 
@@ -45,7 +44,7 @@ public class AustraliaCorona extends PApplet {
     }
 
     public void draw(){
-      //  displayAndInput.barGraph();
+        buttonEffect();
 displayAndInput.display(graphs,buttList);
         displayAndInput.displayMenu(options);
 
@@ -54,6 +53,18 @@ displayAndInput.display(graphs,buttList);
 
     @Override
     public void mouseClicked() {
+        for (int i = 0; i < buttList.size(); i++) {
+            buttList.get(i).registerClick(mouseX, mouseY);
+        }
+    }
+    public void buttonEffect(){
+        for(int i = 0;i<buttList.size();i++) {
+            if (buttList.get(i).isButtonPressed()) {
+                graphs = i+1;
+            }
+        }
+
+
 
     }
 }
