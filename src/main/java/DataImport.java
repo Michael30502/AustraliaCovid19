@@ -7,7 +7,8 @@ import java.util.HashMap;
 
 public class DataImport {
 
-    HashMap<String,Data> map = new HashMap<>();
+    HashMap<String,Data> totalMap = new HashMap<>();
+    HashMap<String,Data> newMap = new HashMap<>();
     ArrayList<String> dates = new ArrayList<>();
     ArrayList<String> datesActive = new ArrayList<>();
     PApplet p;
@@ -28,13 +29,13 @@ public class DataImport {
                dates.add(row.getString("date"));
                if(row.getInt("total_deaths")!=0)
                datesActive.add(row.getString("date"));
-               p.println(row.getString("date")+ " "+row.getInt("total_deaths"));
-               putData(row.getString("date"),row.getInt("total_deaths"));
+               p.println(row.getString("date")+ " "+row.getInt("total_deaths") + " "+row.getInt("total_cases"));
+               putData(row.getString("date"),row.getInt("total_deaths"),row.getInt("new_deaths"),row.getInt("total_cases"));
            }
     }
 }
-    void putData(String key,int deaths){
-        map.put(key,new Data(key,deaths));
+    void putData(String key,int deaths,int newDeaths,int totalCases){
+        totalMap.put(key,new Data(key,deaths,newDeaths,totalCases));
     }
 
 

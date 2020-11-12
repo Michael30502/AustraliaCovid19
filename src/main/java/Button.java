@@ -1,38 +1,49 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 public class Button {
-    boolean Tryk;
+    boolean pressed;
 
     float xPos, yPos;
     float w, h;
+    DisplayAndInput  dAP;
     String text;
     PApplet p;
-    Button(PApplet p,float x, float y, float b, float h, String t) {
+    int type;
 
+    Button(PApplet p,float x, float y, float b, float h, String t,DisplayAndInput dAP,int type) {
+        this.dAP = dAP;
         this.w = b;
         this.h = h;
         this.xPos = x;
         this.yPos = y;
         this.text = t;
         this.p=p;
+        this.type = type;
     }
     public void drawButton() {
         p.textSize(24);
         p.fill(3,130,170);
-        p.rect(this.xPos, this.yPos, this.w, this.h);
+        p.rect(xPos, yPos, w, h);
         p.fill(255);
-        p.text(this.text, xPos +this.w/2, yPos + 35);
+        p.text(text, xPos +w/2, yPos + 35);
+        isButtonPressed();
     }
     boolean isButtonPressed() {
-        return Tryk;
+        if (pressed)
+        dAP.currentGraph = type;
+
+        return pressed;
+
     }
     void registerClick(float xin, float yin) {
 
         if (xin > xPos && xin < xPos + w && yin < yPos + h && yin > yPos) {
-            Tryk = true;
+            pressed = true;
         }
     }
     void release() {
-        Tryk = false;
+        pressed = false;
     }
 }

@@ -1,7 +1,7 @@
 import processing.core.PApplet;
+import processing.event.MouseEvent;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class AustraliaCorona extends PApplet {
 
@@ -27,27 +27,36 @@ public class AustraliaCorona extends PApplet {
         options.add("Bar Graph (Deaths)");
         options.add("Bar Graph (New Deaths)");
         options.add("Line Graph (Deaths)");
+        //options.add("Circle Diagram");
+        dataHandler = new DataHandler(this,dataImport.totalMap,dataImport.dates,multiplier,dataImport.datesActive);
+        displayAndInput= new DisplayAndInput(this,dataHandler);
+
     for(int i = 0; i<options.size();i++){
-        buttList.add(new Button(this,200+((width-200)/3*i),0,(width-200)/3,100,options.get(i)));
+        buttList.add(new Button(this,200+((width-200)/options.size()*i),0,(width-200)/options.size(),100,options.get(i),displayAndInput,i+1));
     }
     dataImport.importData();
 
     
-         displayAndInput= new DisplayAndInput(this,dataHandler);
-     dataHandler = new DataHandler(this,dataImport.map,dataImport.dates,multiplier,dataImport.datesActive);
+
+
      
-
-
-
 
 
     }
 
     public void draw(){
+
         buttonEffect();
 displayAndInput.display(graphs,buttList);
         displayAndInput.displayMenu(options);
 
+      
+    
+    
+        
+
+
+        
     }
 
 
@@ -66,5 +75,20 @@ displayAndInput.display(graphs,buttList);
 
 
 
+        for(int i = 0; i<buttList.size();i++){
+    buttList.get(i).registerClick(mouseX,mouseY);
+
+}
     }
+
+    @Override
+    public void mouseReleased() {
+        for(int i = 0; i<buttList.size();i++){
+            buttList.get(i).release();
+
+        }
+    }
+
+
+
 }
