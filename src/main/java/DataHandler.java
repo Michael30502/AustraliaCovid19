@@ -65,7 +65,6 @@ public class DataHandler {
                 }
                 k++;
             }
-
             for(int i =1;i<6;i++){
                 p.stroke(255);
             p.line(50, (float) (p.height-32-sum2/5*i),p.width-50,(p.height -32-sum2/multi2*i));
