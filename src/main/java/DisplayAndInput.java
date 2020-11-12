@@ -71,6 +71,7 @@ void display(int graph,ArrayList<Button> buttList){
 
 
 void background(){
+    p.stroke(0);
     p.background(3,145,213);
     p.fill(3,130,170);
     p.rect(0,0,p.width,100);

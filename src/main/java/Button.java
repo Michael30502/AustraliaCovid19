@@ -23,6 +23,7 @@ public class Button {
         this.type = type;
     }
     public void drawButton() {
+        p.stroke(0);
         p.textSize(24);
         p.fill(3,130,170);
         p.rect(xPos, yPos, w, h);
