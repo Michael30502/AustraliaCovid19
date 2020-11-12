@@ -23,10 +23,10 @@ ArrayList<String> options = new ArrayList<>();
         
 	}}
 
-void display(/*InputField inputField*/){
+void display(int graph){
     background();
     //dataHandler.barGraph();
-    //inputField.display();
+
     dataHandler.lineGraph();
 }
 

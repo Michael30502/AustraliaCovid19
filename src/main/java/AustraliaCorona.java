@@ -8,6 +8,7 @@ public class AustraliaCorona extends PApplet {
     DisplayAndInput displayAndInput;
     DataHandler dataHandler;
     double multiplier = 0.5;
+    int graphs;
 
     public static void main(String[] args ) {
         PApplet.main("AustraliaCorona");
@@ -26,7 +27,7 @@ public class AustraliaCorona extends PApplet {
 
      dataHandler = new DataHandler(this,dataImport.map,dataImport.dates,multiplier);
          displayAndInput= new DisplayAndInput(this,dataHandler);
-    displayAndInput.display();
+    displayAndInput.display(graphs);
 
 
     displayAndInput.displayMenu();
