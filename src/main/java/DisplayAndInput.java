@@ -1,20 +1,22 @@
 import processing.core.PApplet;
+import processing.core.PImage;
+
+import java.awt.*;
 import java.util.ArrayList;
 
 public class DisplayAndInput {
 PApplet p;
 DataHandler dataHandler;
-ArrayList<String> options = new ArrayList<>();
 
+PImage logo;
         DisplayAndInput(PApplet p,DataHandler dataHandler){
+            logo=p.loadImage("Australiencool.png");
             this.p=p;
             this.dataHandler = dataHandler;
-            options.add("Bar Graph (Deaths)");
-            options.add("Bar Graph (New Deaths)");
-            options.add("Line Graph (Deaths)");
+
         }
 
-    void displayMenu(){
+    void displayMenu(ArrayList<String> options){
 
         for(int i =0;i<options.size();i++){
             p.textAlign(p.CENTER);
@@ -23,11 +25,12 @@ ArrayList<String> options = new ArrayList<>();
         
 	}}
 
-void display(int graph){
+void display(int graph,ArrayList<Button> buttList){
     background();
     //dataHandler.barGraph();
-
-    dataHandler.lineGraph();
+    for(int i = 0;i<buttList.size();i++){
+    buttList.get(i).drawButton();}
+//    dataHandler.lineGraph();
 }
 
 
@@ -38,6 +41,8 @@ void background(){
     p.background(3,145,213);
     p.fill(3,130,170);
     p.rect(0,0,p.width,100);
+    logo.resize(200,100);
+    p.image(logo,0,0);
 
     }
 

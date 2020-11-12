@@ -21,7 +21,7 @@ public class Button {
         p.fill(0);
         p.rect(this.xPos, this.yPos, this.w, this.h);
         p.fill(255);
-        p.text(this.text, xPos +10, yPos + 35);
+        p.text(this.text, xPos +this.w/2, yPos + 35);
     }
     boolean isButtonPressed() {
         return Tryk;
