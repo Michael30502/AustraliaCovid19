@@ -6,27 +6,46 @@ import java.util.HashMap;
 public class DataHandler {
 
     PApplet p;
-    HashMap<String,Data> map;
+    HashMap<String,Data> totalMap;
+
     ArrayList<String> dates;
     ArrayList<String> datesActive;
+
     double multi;
 
-        DataHandler(PApplet p,HashMap<String,Data> map,ArrayList<String> dates,double multiplier,ArrayList<String> datesActive){
+        DataHandler(PApplet p, HashMap<String,Data> totalMap, ArrayList<String> dates, double multiplier, ArrayList<String> datesActive){
             this.p = p;
-            this.map = map;
+            this.totalMap = totalMap;
+
             this.dates = dates;
             this.datesActive = datesActive;
             multi=multiplier;
         }
 
-        void barGraph(){
-            System.out.println(p.height);
-            for(int i =0; i<datesActive.size();i++) {
-                p.rect((float)5.6*(float)i,p.height ,1,p.height  - ((float)map.get(datesActive.get(i)).deaths)*(float)1.5);
+        void barGraph(String type){
+            //System.out.println();
+            for(int i =0; i<datesActive.size();i++)
+            switch (type){
 
+                case "total":{p.rect((float)5.6*(float)i,p.height-2 ,1, - (((float) totalMap.get(datesActive.get(i)).deaths)*(float)0.7)) ;break;}
+
+                case "new":{p.rect((float)5.6*(float)i,p.height-2 ,1, - (((float) totalMap.get(datesActive.get(i)).newDeaths)*(float)0.7));break;}
             }
+
+
+
+
+
         }
 
+        void circleDiagram(){
+
+        p.text("THIS IS A CIRCLE DIAGRAM",p.width/2,p.height/2);
+
+
+
+
+        }
 
         void lineGraph() {
             float sum1 =0;
@@ -34,7 +53,7 @@ public class DataHandler {
             float multi2 = (float)multi*5;
 
             for (int i = 1; i < dates.size(); i++) {
-                sum2= (float) (map.get(dates.get(i)).deaths/3.5);
+                sum2= (float) (totalMap.get(dates.get(i)).deaths/3.5);
                 p.stroke(0);
             p.line(50+(i-1)*multi2,p.height-30-sum1,50+i*multi2,p.height-30-sum2);
                 sum1=sum2;
