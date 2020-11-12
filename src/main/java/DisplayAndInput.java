@@ -11,6 +11,7 @@ ArrayList<String> options = new ArrayList<>();
             this.dataHandler = dataHandler;
             options.add("Bar Graph (Deaths)");
             options.add("Bar Graph (New Deaths)");
+            options.add("Line Graph (Deaths)");
         }
 
     void displayMenu(){
