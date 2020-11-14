@@ -9,7 +9,9 @@ public class DisplayAndInput {
     PApplet p;
     DataHandler dataHandler;
 
+
     PImage logo;
+
         DisplayAndInput(PApplet p,DataHandler dataHandler){
             logo=p.loadImage("Australiencool.png");
             this.p=p;
@@ -26,44 +28,60 @@ public class DisplayAndInput {
         
 	}}
 
-void display(int graph,ArrayList<Button> buttList){
-    background();
-
-    for(int i = 0;i<buttList.size();i++){
-    buttList.get(i).drawButton();}
+void display(int graph,ArrayList<Button> buttList,Button loginButton,boolean introScreen){
+    if(introScreen){
 
 
-    switch(currentGraph){
+        loginButton.drawButton();
+        openingScreen();
 
-        case 0:{
-            p.text("Select a GRAPH!",p.width/2,p.height/2);
-
-
-        }break;
-
-        case 1:{
-            dataHandler.barGraph("total");
-
-
-        }break;
-
-        case 2:{
-            dataHandler.barGraph("new");
-
-        }break;
-
-        case 3:{
-            dataHandler.lineGraph();
-
-        }break;
-        case 4:{
-           dataHandler.circleDiagram();
-    }break;
-        default:break;
 
     }
+    if(!introScreen) {
+        background();
+
+        for (int i = 0; i < buttList.size(); i++) {
+            buttList.get(i).drawButton();
+        }
 
 
+        switch (currentGraph) {
+
+            case 0: {
+                p.text("Select a GRAPH!", p.width / 2, p.height / 2);
+
+
+            }
+            break;
+
+            case 1: {
+                dataHandler.barGraph("total");
+
+
+            }
+            break;
+
+            case 2: {
+                dataHandler.barGraph("new");
+
+            }
+            break;
+
+            case 3: {
+                dataHandler.lineGraph();
+
+            }
+            break;
+            case 4: {
+                dataHandler.circleDiagram();
+            }
+            break;
+            default:
+                break;
+
+        }
+
+    }
 }
 
 
@@ -75,11 +93,14 @@ void background(){
     p.background(3,145,213);
     p.fill(3,130,170);
     p.rect(0,0,p.width,100);
-    logo.resize(200,100);
-    p.image(logo,0,0);
+
+    p.image(logo,0,0,200,100);
 
     }
-
+void openingScreen(){
+ p.background(3,145,213);
+    p.image(logo,400,214,992,400);
+}
 
 
 }

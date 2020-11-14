@@ -10,6 +10,8 @@ public class AustraliaCorona extends PApplet {
     DataHandler dataHandler;
     double multiplier = 0.5;
     int graphs;
+    Button loginButton;
+    boolean introScreen = true;
     ArrayList<String> options = new ArrayList<>();
     ArrayList<Button> buttList = new ArrayList<Button>();
     public static void main(String[] args ) {
@@ -30,7 +32,7 @@ public class AustraliaCorona extends PApplet {
         //options.add("Circle Diagram");
         dataHandler = new DataHandler(this,dataImport.totalMap,dataImport.dates,multiplier,dataImport.datesActive);
         displayAndInput= new DisplayAndInput(this,dataHandler);
-
+        loginButton = new Button(this,400,214,992,400,"",0);
     for(int i = 0; i<options.size();i++){
         buttList.add(new Button(this,200+((width-200)/options.size()*i),0,(width-200)/options.size(),100,options.get(i),displayAndInput,i+1));
     }
@@ -45,7 +47,9 @@ public class AustraliaCorona extends PApplet {
     }
 
     public void draw(){
-displayAndInput.display(graphs,buttList);
+        if(loginButton.isButtonPressedGraphs())
+            introScreen=false;
+displayAndInput.display(graphs,buttList,loginButton,introScreen);
         displayAndInput.displayMenu(options);
 
     }
@@ -53,6 +57,8 @@ displayAndInput.display(graphs,buttList);
 
     @Override
     public void mouseClicked() {
+        if(introScreen)
+            loginButton.registerClick(mouseX, mouseY);
         for (int i = 0; i < buttList.size(); i++) {
             buttList.get(i).registerClick(mouseX, mouseY);
         }
@@ -62,9 +68,9 @@ displayAndInput.display(graphs,buttList);
 
     @Override
     public void mouseReleased() {
+
         for(int i = 0; i<buttList.size();i++){
             buttList.get(i).release();
-
         }
     }
 
