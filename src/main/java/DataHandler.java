@@ -27,12 +27,23 @@ public class DataHandler {
             for(int i =0; i<datesActive.size();i++){
             switch (type){
 
-                case "total":{p.rect((float)5.6*(float)i,p.height-2 ,1, - (((float) totalMap.get(datesActive.get(i)).deaths)*(float)0.7)) ;break;}
+                case "total":{p.rect((float)5.6*(float)i+20,p.height-20,1, - (((float) totalMap.get(datesActive.get(i)).deaths)*(float)0.7));break;}
 
-                case "new":{p.rect((float)5.6*(float)i,p.height-2 ,1, - (((float) totalMap.get(datesActive.get(i)).newDeaths)*(float)0.7));break;}
+                case "new":{p.rect((float)5.6*(float)i+20,p.height-20 ,1, - (((float) totalMap.get(datesActive.get(i)).newDeaths)*(float)0.7));break;}
             }
+            p.line(20,100,20,p.height-20);
 
-            System.out.println(totalMap.get(datesActive.get(i)).deaths);}
+            p.textSize(8);
+            if(i%15 ==0) {
+                p.textAlign(p.LEFT);
+                p.text(totalMap.get(datesActive.get(i)).date + "", (float) 5.6 * (float) i + 10, p.height - 10);
+                p.textAlign(p.CENTER);
+                p.text(i*4+"",10,p.height-i*4-25);
+            }
+            p.line(20,p.height-20,p.width,p.height-20);
+
+            //System.out.println(totalMap.get(datesActive.get(i)).deaths)
+                }
 
 
 
