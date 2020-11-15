@@ -8,8 +8,8 @@ public class DisplayAndInput {
     int currentGraph = 0;
     PApplet p;
     DataHandler dataHandler;
-
-
+    int counter = 0;
+    boolean click;
     PImage logo;
 
         DisplayAndInput(PApplet p,DataHandler dataHandler){
@@ -100,6 +100,12 @@ void background(){
 void openingScreen(){
  p.background(3,145,213);
     p.image(logo,400,214,992,400);
+    if(counter%30==0)
+     click=!click;
+    if(click){
+        p.fill(0);
+    p.text("CLICK",p.width/2,200);}
+    counter++;
 }
 
 
