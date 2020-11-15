@@ -29,6 +29,7 @@ public class DataHandler {
             for(int i =0; i<datesActive.size();i++){
             switch (type){
 
+<<<<<<< HEAD
                 case "total":{p.rect((float)5.6*(float)i,p.height-2 ,1, - (((float) totalMap.get(datesActive.get(i)).deaths)*(float)0.7));
  textTotal = true;
  textNew = false;
