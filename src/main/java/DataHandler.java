@@ -11,6 +11,9 @@ public class DataHandler {
     ArrayList<String> dates;
     ArrayList<String> datesActive;
 
+    boolean textTotal = false;
+    boolean textNew = false;
+
     double multi;
 
         DataHandler(PApplet p, HashMap<String,Data> totalMap, ArrayList<String> dates, double multiplier, ArrayList<String> datesActive){
@@ -27,9 +30,9 @@ public class DataHandler {
             for(int i =0; i<datesActive.size();i++){
             switch (type){
 
-                case "total":{p.rect((float)5.6*(float)i+20,p.height-20,1, - (((float) totalMap.get(datesActive.get(i)).deaths)*(float)0.7));break;}
+                case "total":{p.rect((float)5.6*(float)i+20,p.height-20,1, - (((float) totalMap.get(datesActive.get(i)).deaths)*(float)0.7));textNew = false; textTotal = true;break;}
 
-                case "new":{p.rect((float)5.6*(float)i+20,p.height-20 ,1, - (((float) totalMap.get(datesActive.get(i)).newDeaths)*(float)0.7));break;}
+                case "new":{p.rect((float)5.6*(float)i+20,p.height-20 ,1, - (((float) totalMap.get(datesActive.get(i)).newDeaths)*(float)0.7));textNew = true; textTotal = false;break;}
             }
             p.line(20,100,20,p.height-20);
 
@@ -45,7 +48,18 @@ public class DataHandler {
             //System.out.println(totalMap.get(datesActive.get(i)).deaths)
                 }
 
+            if (textTotal){
+                p.textSize(18);
+                p.text("Bar graph over total COVID-19 deaths \n On the x axis we see the days\n On the y axis we see total deaths",1625,125);
+                p.textSize(10);
 
+            }
+            if (textNew){
+                p.textSize(18);
+                p.text("Bar graph over COVID-19 deaths per day\n On the x axis we see the days\n On the y axis we see deaths on that day",1500,125);
+                p.textSize(10);
+
+            }
 
         }
 
@@ -83,7 +97,11 @@ public class DataHandler {
             p.text(cool,10, (p.height-32 -sum2/multi2*i));
             }
     p.line(50,p.height-29,p.width-50,p.height-29);
-            p.line(50,p.height-29,50,p.height-32-sum2);    }
+            p.line(50,p.height-29,50,p.height-32-sum2);
+            p.textSize(18);
+            p.text("Line graph over COVID-19 deaths in Australia\n On the x axis we see the dates\n On the y axis we see total deaths",1500,125);
+            p.textSize(10);
+        }
 
 
 
