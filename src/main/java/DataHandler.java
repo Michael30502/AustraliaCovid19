@@ -40,9 +40,9 @@ public class DataHandler {
             p.textSize(8);
             if(i%15 ==0) {
                 p.textAlign(p.LEFT);
-                p.text(totalMap.get(datesActive.get(i)).date + "", (float) 5.6 * (float) i + 10, p.height - 10);
+                p.text(totalMap.get(datesActive.get(i)).date + "", ((float) 5.6 * (float) i + 10), p.height - 10);
                 p.textAlign(p.CENTER);
-                p.text(i*4+"",10,p.height-i*4-25);
+                p.text(i*4*(float)1.4+"",10,p.height-i*4-10*(float)1.4);
             }
             p.line(20,p.height-20,p.width,p.height-20);
 
@@ -82,19 +82,21 @@ constrain-=2;
             float sum1 =0;
             float sum2 =0;
             float multi2 = 5;
-            int k = 0;
-            for (int i = 1; i < dates.size(); i++) {
+            int size = p.constrain(dates.size(),1,constrain);
+
+            for (int i = 1; i < size; i++) {
                 sum2= (float) (totalMap.get(dates.get(i)).deaths/1.5);
                 p.stroke(0);
-            p.line(50+(i-1)*multi2,p.height-30-sum1,50+i*multi2,p.height-30-sum2);
+          p.line(50+(i-1)*multi2,p.height-30-sum1,50+i*multi2,p.height-30-sum2);
                 sum1=sum2;
                 String date = totalMap.get(dates.get(i)).date;
-                if(k%15==0){
+                if(i-1%15==0){
                     p.textSize(10);
                     p.text(date,50+(i-1)*multi2,p.height-15);
                 }
-                k++;
+
             }
+
             for(int i =1;i<6;i++){
                 p.stroke(255);
             p.line(50, (float) (p.height-32-sum2/5*i),p.width-50,(p.height -32-sum2/multi2*i));
@@ -106,6 +108,7 @@ constrain-=2;
             p.textSize(18);
             p.text("Line graph over COVID-19 deaths in Australia\n On the x axis we see the dates\n On the y axis we see total deaths",1500,125);
             p.textSize(10);
+            constrain++;
         }
 
 
