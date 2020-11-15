@@ -31,7 +31,7 @@ public class AustraliaCorona extends PApplet {
         displayAndInput= new DisplayAndInput(this,dataHandler);
         loginButton = new Button(this,400,214,992,400,"",0);
     for(int i = 0; i<options.size();i++){
-        buttList.add(new Button(this,200+((width-200)/options.size()*i),0,(width-200)/options.size(),100,options.get(i),displayAndInput,i+1));
+        buttList.add(new Button(this,200+((width-200)/options.size()*i),0,(width-200)/options.size(),100,options.get(i),displayAndInput,i+1,dataHandler));
     }
     dataImport.importData();
     }
@@ -43,7 +43,7 @@ displayAndInput.display(graphs,buttList,loginButton,introScreen);
 
     }
     @Override
-    public void mouseClicked() {
+    public void mousePressed() {
         if(introScreen)
             loginButton.registerClick(mouseX, mouseY);
         for (int i = 0; i < buttList.size(); i++) {

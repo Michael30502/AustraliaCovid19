@@ -37,7 +37,7 @@ void display(int graph,ArrayList<Button> buttList,Button loginButton,boolean int
 
 
     }
-    if(!introScreen) {
+    else {
         background();
 
         for (int i = 0; i < buttList.size(); i++) {

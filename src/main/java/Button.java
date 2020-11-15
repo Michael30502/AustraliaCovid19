@@ -11,8 +11,8 @@ public class Button {
     String text;
     PApplet p;
     int type;
-
-    Button(PApplet p,float x, float y, float b, float h, String t,DisplayAndInput dAP,int type) {
+    DataHandler dH;
+    Button(PApplet p,float x, float y, float b, float h, String t,DisplayAndInput dAP,int type,DataHandler dH) {
         this.dAP = dAP;
         this.w = b;
         this.h = h;
@@ -21,6 +21,7 @@ public class Button {
         this.text = t;
         this.p=p;
         this.type = type;
+        this.dH = dH;
     }
     Button(PApplet p,float x, float y, float b, float h,String t,int  type) {
         this.w = b;
@@ -42,10 +43,13 @@ public class Button {
         isButtonPressedGraphs();
     }
     boolean isButtonPressedGraphs() {
-        if (pressed)
-            if(type>0)
-        dAP.currentGraph = type;
 
+        if (pressed)
+            if(type>0) {
+                dAP.currentGraph = type;
+                dH.constrain =0;
+                System.out.println("Bruh");
+            }
         return pressed;
 
     }
