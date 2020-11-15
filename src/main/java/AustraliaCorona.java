@@ -18,12 +18,9 @@ public class AustraliaCorona extends PApplet {
         PApplet.main("AustraliaCorona");
     }
 
-
     public void settings() {
         size(1792,828);
     }
-
-
 
     public void setup(){
         options.add("Bar Graph (Deaths)");
@@ -37,15 +34,7 @@ public class AustraliaCorona extends PApplet {
         buttList.add(new Button(this,200+((width-200)/options.size()*i),0,(width-200)/options.size(),100,options.get(i),displayAndInput,i+1));
     }
     dataImport.importData();
-
-    
-
-
-     
-
-
     }
-
     public void draw(){
         if(loginButton.isButtonPressedGraphs())
             introScreen=false;
@@ -53,8 +42,6 @@ displayAndInput.display(graphs,buttList,loginButton,introScreen);
         displayAndInput.displayMenu(options);
 
     }
-
-
     @Override
     public void mouseClicked() {
         if(introScreen)
@@ -64,8 +51,6 @@ displayAndInput.display(graphs,buttList,loginButton,introScreen);
         }
     }
 
-
-
     @Override
     public void mouseReleased() {
 
@@ -73,7 +58,4 @@ displayAndInput.display(graphs,buttList,loginButton,introScreen);
             buttList.get(i).release();
         }
     }
-
-
-
 }
